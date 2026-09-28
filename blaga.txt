@@ -1,0 +1,200 @@
+задание 1.1
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main(){
+    int a;
+    int b;
+    int c;
+    cout << 'введите число a';
+    cin>> a;
+    cout <<'введите число b';
+    cin>> b;
+    c=sqrt(a*a + b*b);
+    cout << 'гипотенуза = ' <<c;
+    return 0;
+}
+
+
+задание 1.2
+
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double findHypotenuse(double a, double b)
+{
+    return sqrt(a*a + b*b);
+}
+int main(){
+    double a, b;
+    cin>> a;
+    cin>> b;
+    double c = findHypotenuse(a, b);
+    cout << "гипотенуза = " << c;
+    return 0;
+}
+
+
+задание 1.3
+
+#include <iostream>
+#include <cmath>
+
+struct Triangle {
+    double a; 
+    double b; 
+
+    double getHypotenuse() const {
+        return std::sqrt(a * a + b * b);
+    }
+};
+
+int main() {
+    double a, b;
+    
+    std::cout << "Введите катет a: ";
+    std::cin >> a;
+    std::cout << "Введите катет b: ";
+    std::cin >> b;
+    
+    Triangle t = {a, b}; 
+    
+    std::cout << "Гипотенуза равна: " << t.getHypotenuse() << std::endl;
+    
+    return 0;
+}
+
+задание 1.4
+
+#include <iostream>
+#include <fstream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    ifstream input("input.txt");
+    ofstream output("output.txt");
+
+    double a, b;
+    input >> a >> b;
+
+    double c = sqrt(a * a + b * b);
+
+    output << c << endl;
+
+    input.close();
+    output.close();
+
+    return 0;
+
+
+
+
+задание 2.1
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double v, t;
+
+    cout << "Введите скорость и время: ";
+    cin >> v >> t;
+
+    double s = v * t;
+    double position = s - 109 * int(s / 109);
+
+    cout << "Вася остановится на отметке: " << position << " км" << endl;
+
+    return 0;
+}
+
+задание 2.2
+
+#include <iostream>
+
+using namespace std;
+
+class Biker {
+private:
+    double speed;
+    double time;
+
+public:
+    Biker(double speed, double time) {
+        this->speed = speed;
+        this->time = time;
+    }
+
+    double getPosition() {
+        double distance = speed * time;
+        return distance - 109 * int(distance / 109);
+    }
+};
+
+int main() {
+    double v, t;
+
+    cout << "Введите скорость и время: ";
+    cin >> v >> t;
+
+    Biker biker(v, t);
+
+    cout << "Вася остановится на отметке: "
+         << biker.getPosition() << " км" << endl;
+
+    return 0;
+}
+
+задание 2.3
+
+#include <iostream>
+#include "Biker.h"
+
+using namespace std;
+
+int main() {
+    double v, t;
+
+    cout << "Введите скорость и время: ";
+    cin >> v >> t;
+
+    cout << "Отметка: " << getPosition(v, t) << " км" << endl;
+
+    return 0;
+}
+
+
+
+задание 2.4
+
+
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main() {
+    ifstream input("input.txt");
+    ofstream output("output.txt");
+
+    double v, t;
+
+    input >> v >> t;
+
+    double distance = v * t;
+    double position = distance - 109 * int(distance / 109);
+
+    output << position << endl;
+
+    input.close();
+    output.close();
+
+    return 0;
+}
